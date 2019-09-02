@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 
 class FeelingPage extends Component {
 
-  clickUnderstand =() => {
+  clickConfirm =(event) => {
+    //dispatch event here
     this.props.history.push('/understand')
   }
   
@@ -11,11 +12,8 @@ class FeelingPage extends Component {
     return (
       <div>
         
-        <p>How are you feeling?</p>
-        <button>
-          title="Next"
-          onClick={() => this.props.navigation.navigate('understand')}
-        </button>
+        <h1>How are you feeling?</h1>
+        <button onClick={this.clickConfirm}>NEXT</button>
       
       </div>
       

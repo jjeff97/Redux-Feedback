@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 
 class CommentPage extends Component {
+  handleClick =(event) => {
+    this.props.history.push('/review');
+  }
+  
   render() {
     return (
+      <div>
+        
+        <h1>Any comments you want to leave?</h1>
+        <button onClick={this.handleClick}>NEXT</button>
       
-      <div className="CommentPage">
-      <header className="CommentPage-header">
-          <h1 className="CommentPage-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        <br/> 
-        </div>
+      </div>
+      
+
+
     )
   }
-
 
 
 }

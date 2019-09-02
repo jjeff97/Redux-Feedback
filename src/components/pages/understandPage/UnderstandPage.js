@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 
 class UnderstandPage extends Component {
+  handleClick =(event) => {
+    this.props.history.push('/comment');
+  }
+  
   render() {
     return (
-      <div className="UnderstandPage">
-      <header className="UnderstandPage-header">
-          <h1 className="UnderstandPage-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        <br/> 
-        </div>
-    )
-    
-  }
+      <div>
+        
+        <h1>How well are you understanding the content?</h1>
+        <button onClick={this.handleClick}>Next</button>
+      
+      </div>
+      
 
+
+    )
+  }
 
 
 }
