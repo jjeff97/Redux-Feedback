@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class ReviewPage extends Component {
   render() {
     return (
-      {/* <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
+      <div className="ReviewPage">
+      <header className="ReviewPage-header">
+          <h1 className="ReviewPage-title">Review Your Feedback</h1>
         </header>
-        <br/> */}
+        <br/> 
+        </div>
     )
   }
 

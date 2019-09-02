@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
+const review = require('./routes/review.router');
 
 
 /** ---------- START SERVER ---------- **/
