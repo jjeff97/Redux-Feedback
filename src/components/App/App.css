@@ -2,18 +2,18 @@
   text-align: center;
 }
 
-.FeelingPage-header {
+.App-header {
   background-color: #033076;
   min-height: 70px;
   padding: 20px;
   color: white;
 }
 
-.FeelingPage-title {
+.App-title {
   font-size: 1.5em;
 }
 
-.FeelingPage-intro {
+.App-intro {
   font-size: large;
 }
 

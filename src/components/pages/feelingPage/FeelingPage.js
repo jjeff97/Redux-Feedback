@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 
 
 class FeelingPage extends Component {
+
+  clickUnderstand =() => {
+    this.props.history.push('/understand')
+  }
+  
   render() {
     return (
-      <div className="FeelingPage">
-        <header className="FeelingPage-header">
-          <h1 className="FeelingPage-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        </div>
+      <div>
+        
+        <p>How are you feeling?</p>
+        <button>
+          title="Next"
+          onClick={() => this.props.navigation.navigate('understand')}
+        </button>
+      
+      </div>
       
 
 

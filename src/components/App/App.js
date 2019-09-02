@@ -10,10 +10,22 @@ import CommentPage from '../pages/commentPage/CommentPage';
 import ReviewPage from '../pages/reviewPage/ReviewPage';
 
 class App extends Component {
+  state = {
+
+  }
+
+  componentDidMount() {
+  }
+  
   render() {
 
     return (
       <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">Feedback!</h1>
+          <h4><i>Don't forget it!</i></h4>
+        </header>
+      
         <Router>
           <Route exact path="/feeling" component={FeelingPage} />
           <Route exact path="/understand" component={UnderstandPage} />
