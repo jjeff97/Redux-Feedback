@@ -11,9 +11,7 @@ app.use(express.static('build'));
 /** ---------- EXPRESS ROUTES ---------- **/
 const review = require('./routes/review.router');
 
-app.get('/review', (req,res) =>{
-    res,send('Hey');
-}
+
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);
