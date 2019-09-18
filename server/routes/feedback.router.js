@@ -5,7 +5,7 @@ const pool = require('../module/pool');
 
 
 
-router.get('/prime_feedback', (req, res) => {
+router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "feedback;';
 
     pool.query(queryText)
@@ -21,8 +21,8 @@ router.get('/prime_feedback', (req, res) => {
 
 router.post('/feedback', (req, res) => {
     const newFeedback = req.body;
-    const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "flagged", "date")
-                        VALUES ($1, $2, $3, $4, $5, $6);`;
+    const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+                        VALUES ($1, $2, $3, $4);`;
     
     pool.query(queryText, [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments, newFeedback.flagged, newFeedback.date])
         .then((result) => {

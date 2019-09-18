@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -11,10 +10,7 @@ import CommentPage from '../pages/commentPage/CommentPage';
 import ReviewPage from '../pages/reviewPage/ReviewPage';
 
 class App extends Component {
-  state = {
-
-  }
-
+ 
   
 
   render() {
@@ -27,7 +23,7 @@ class App extends Component {
         </header>
       
         <Router>
-          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/feeling" component={FeelingPage} />
           <Route exact path="/understand" component={UnderstandPage} />
           <Route exact path="/support" component={SupportPage} />

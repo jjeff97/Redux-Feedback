@@ -7,20 +7,63 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider} from 'react-redux'
 import logger from 'redux-logger';
 
-import feelingReducer from './modules/reducers/feeling.reducer';
-import understandReducer from './modules/reducers/understand.reducer';
-import supportReducer from './modules/reducers/support.reducer';
-import commentReducer from './modules/reducers/comment.reducer';
 
+const initialFeedbackObjectState = {
+    feeling: 0,
+    understanding: 0,
+    supported: 0,
+    comments: ''
+}
+
+const feedbackReducer = (state = initialFeedbackObjectState, action) => {
+
+    if (action.type === 'SET_FEELING') {
+        return {
+            ...state,
+            feeling: action.payload
+        }
+    }
+
+    if (action.type === 'SET_UNDERSTANDING') {
+        return {
+            ...state,
+            understanding: action.payload
+        }
+    }
+
+    if (action.type === 'SET_SUPPORTED') {
+        return {
+            ...state,
+            supported: action.payload
+        }
+    }
+
+    if (action.type === 'SET_COMMENTS') {
+        return {
+            ...state,
+            comments: action.payload
+        }
+    }
+
+    return state;
+}
+
+const allFeedbackReducer = (state = [], action) => {
+    if(action.type === "SET_ALL_FEEDBACK") {
+        return [
+            ...action.payload
+        ]
+    }
+
+    return state;
+}
 
 const storeInstance = createStore(
     combineReducers({
-        feelingReducer,
-        understandReducer,
-        supportReducer,
-        commentReducer
+        feedbackReducer,
+        allFeedbackReducer
     }),
     applyMiddleware(logger)
-);
+)
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

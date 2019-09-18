@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import axios from 'axios';
 class CommentPage extends Component {
   state = {
     NewComment: '',
@@ -26,7 +25,7 @@ class CommentPage extends Component {
       <div>
         
         <h1>Any comments you want to leave?</h1>
-        <input onChange={this.updateForm('comment')} type="text" placeholder="Enter your comment" />
+        <input onChange={this.updateFeedback('comment')} type="text" placeholder="Enter your comment" />
         <button onClick={this.handleClick}>NEXT</button>
       
       </div>
