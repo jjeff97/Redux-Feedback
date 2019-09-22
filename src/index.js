@@ -11,7 +11,7 @@ import logger from 'redux-logger';
 const initialFeedbackObjectState = {
     feeling: 0,
     understanding: 0,
-    supported: 0,
+    support: 0,
     comments: ''
 }
 
@@ -31,10 +31,10 @@ const feedbackReducer = (state = initialFeedbackObjectState, action) => {
         }
     }
 
-    if (action.type === 'SET_SUPPORTED') {
+    if (action.type === 'SET_SUPPORT') {
         return {
             ...state,
-            supported: action.payload
+            support: action.payload
         }
     }
 

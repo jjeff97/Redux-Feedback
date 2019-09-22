@@ -6,7 +6,7 @@ const pool = require('../module/pool');
 
 
 router.get('/', (req, res) => {
-    const queryText = 'SELECT * FROM "feedback;';
+    const queryText = 'SELECT * FROM "feedback";';
 
     pool.query(queryText)
         .then((result) => {
@@ -19,12 +19,12 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post('/feedback', (req, res) => {
-    const newFeedback = req.body;
+router.post('/', (req, res) => {
+    const data = req.body;
     const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                         VALUES ($1, $2, $3, $4);`;
     
-    pool.query(queryText, [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments, newFeedback.flagged, newFeedback.date])
+    pool.query(queryText, [data.feeling, data.understanding, data.support, data.comments])
         .then((result) => {
             res.sendStatus(201);
         })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../../modules/mapStoreToProps';
+import mapStoreToProps from '../../../mapStoreToProps';
 import axios from 'axios';
 class ReviewPage extends Component {
 
@@ -9,7 +9,7 @@ class ReviewPage extends Component {
     const dataObject = {
         feeling: this.props.store.feedbackReducer.feeling,
         understanding: this.props.store.feedbackReducer.understanding,
-        supported: this.props.store.feedbackReducer.supported,
+        supported: this.props.store.feedbackReducer.support,
         comments: this.props.store.feedbackReducer.comments
     }
 
@@ -27,7 +27,7 @@ render() {
         <div>
             <p>Feeling: {this.props.store.feedbackReducer.feeling}</p>
             <p>Understanding: {this.props.store.feedbackReducer.understanding}</p>
-            <p>Supported: {this.props.store.feedbackReducer.supported}</p>
+            <p>Supported: {this.props.store.feedbackReducer.support}</p>
             <p>Comments: {this.props.store.feedbackReducer.comments}</p>
             <button onClick={this.submitFeedback}>Submit Feedback!</button>
         </div>

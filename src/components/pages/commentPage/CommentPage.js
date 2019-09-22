@@ -1,40 +1,35 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import mapStoreToProps from '../../../mapStoreToProps';
 class CommentPage extends Component {
+
   state = {
-    NewComment: '',
+      comments: ''
   }
 
-  handleClick =(event) => {
-    this.props.history.push('/review');
-  }
-  clickSummary = () =>{
-    const user ={
-      userComment: this.state.userComment
-    }
-    //dispatch
+  enterValue = (event) => {
+      this.setState({
+          comments: event.target.value
+      })
   }
 
-  updateFeedback = (key) => event => {
-    this.setState({
-
-    })
+  onNextClick = (event) => {
+      // dispatch this value to a reducer
+      this.props.dispatch({type: 'SET_COMMENTS', payload: this.state.comments})
+      this.props.history.push('/review');
   }
+
   render() {
-    return (
-      <div>
-        
-        <h1>Any comments you want to leave?</h1>
-        <input onChange={this.updateFeedback('comment')} type="text" placeholder="Enter your comment" />
-        <button onClick={this.handleClick}>NEXT</button>
-      
-      </div>
-      
-
-
-    )
+      return (
+          <div>
+              <h1>Additional Comments</h1>
+              <h5>What do you want us to know?</h5>
+              <input type="text" onChange={this.enterValue} />
+              <button onClick={this.onNextClick}>Next</button>
+          </div>
+      )
   }
-
-
 }
-export default connect()(CommentPage);
+
+
+export default connect(mapStoreToProps)(CommentPage);

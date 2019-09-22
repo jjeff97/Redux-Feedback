@@ -1,32 +1,59 @@
 import React, { Component } from 'react';
-import NumericInput from 'react-numeric-input';
-
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../../mapStoreToProps';
 
 class FeelingPage extends Component {
+  state = {
+    feelingScore: 0,
+    warning: false,
+    disableButton: true
 
+  }
 
-  clickConfirm =(event) => {
-    //dispatch event here
+  enterValue = (event) => {
+    const feelingScore = parseInt(event.target.value);
+
+    if (feelingScore < 0 || feelingScore > 5 || event.target.value.length == 0) {
+      this.setState({
+        warning: true,
+        disableButton: true
+      })
+    } else {
+      this.setState({
+        feelingScore: feelingScore,
+        warning: false,
+        disableButton: false
+      });
+    }
+  }
+
+  clickConfirm = (event) => {
+    this.props.dispatch({ type: 'SET_FEELING', payload: this.state.feelingScore })
     this.props.history.push('/understand')
   }
-  
+
   render() {
+
+    let warnElement = <p className="warning">You must enter in a value between 1 and 5!</p>;
+
+    if (this.state.warning == false) {
+      warnElement = <div></div>
+    }
+
     return (
       <div>
-        
-        <h1>How are you feeling?</h1>
-        <p>feeling?</p>
-        <NumericInput min={1} max={5} value={1}/>
-        <button onClick={this.clickConfirm}>NEXT</button>
-      
+        <h1>feeling?</h1>
+        <h4>How are you feeling? 1 (not great) - 5 (great!)</h4>
+
+        {warnElement}
+        <input type="number" onChange={this.enterValue} />
+        <button disabled={this.state.disableButton} onClick={this.clickConfirm}>Next</button>
       </div>
-      
+
 
 
     )
   }
-
-
-
 }
-export default FeelingPage;
+  
+export default connect(mapStoreToProps) (FeelingPage);
