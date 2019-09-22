@@ -27,7 +27,7 @@ class SupportPage extends Component {
     }
   }
   handleClick = (event) => {
-    this.props.dispatch({ type: 'SET_SUPPORTED', payload: this.state.supportScore })
+    this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state.supportScore })
     this.props.history.push('/comment');
   }
 

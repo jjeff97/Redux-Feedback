@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../mapStoreToProps';
 import axios from 'axios';
+
 class ReviewPage extends Component {
 
   submitFeedback = () => {
@@ -9,7 +10,7 @@ class ReviewPage extends Component {
     const dataObject = {
         feeling: this.props.store.feedbackReducer.feeling,
         understanding: this.props.store.feedbackReducer.understanding,
-        supported: this.props.store.feedbackReducer.support,
+        support: this.props.store.feedbackReducer.support,
         comments: this.props.store.feedbackReducer.comments
     }
 
